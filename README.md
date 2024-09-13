@@ -18,7 +18,7 @@ Further details can be found in the paper \[[0](#Publication)\].
 ## Usage
 Install python3 and the corresponding packages:
 ```bash
-$ pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 The `examples/circuit.json` file contains the netlist for the 
