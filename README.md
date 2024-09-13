@@ -17,7 +17,7 @@ Further details can be found in the paper \[[0](#Publication)\].
 
 ## Usage
 Install python3 and the corresponding packages:
-```console
+```bash
 $ pip3 install -r requirements.txt
 ```
 
@@ -30,23 +30,23 @@ Yosys flow.
 To convert a cell library (e.g., the 
 [NANGATE45](https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts/tree/master/flow/platforms/nangate45/lib) library), 
 adapt the `examples/config.json` file and start the cell library generator:
-```console
-$ ./cell_lib_generator.py -l NangateOpenCellLibrary_typical.lib -n 16 \
+```bash
+./cell_lib_generator.py -l NangateOpenCellLibrary_typical.lib -n 16 \
     -c examples/config.json -o cell_lib_nangate45_autogen.py
 ```
 
 To start the preprocessing phase for this  example netlist, create 
 the `output` directory and invoke the parser:
-```console
-$ ./parse.py -j examples/circuit.json -m aes_cipher_control \
+```bash
+./parse.py -j examples/circuit.json -m aes_cipher_control \
     -o output/circuit.pickle
 ```
 The parser preprocesses the provided netlist and creates a directed graph, which
 is then used by the fault injector to evaluate the effects of the induced 
 faults. To run the fault injector with the example netlist and the example fault
 specification file, execute the fi_injector tool:
-```console
-$ ./fi_injector.py -p output/circuit.pickle -f examples/fault_model.json -n 16 \
+```bash
+./fi_injector.py -p output/circuit.pickle -f examples/fault_model.json -n 16 \
     -c cell_lib_nangate45_autogen.py
 ```
 
